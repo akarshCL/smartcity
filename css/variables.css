@@ -1,0 +1,77 @@
+:root {
+  /* Base surfaces */
+  --bg-void: #060a11;
+  --bg-base: #0a0f18;
+  --bg-panel: #101826;
+  --bg-panel-raised: #141f30;
+  --bg-inset: #0c1220;
+
+  /* Borders / lines */
+  --line: rgba(148, 175, 209, 0.14);
+  --line-strong: rgba(148, 175, 209, 0.28);
+  --line-accent: rgba(64, 222, 224, 0.4);
+
+  /* Text */
+  --ink-1: #e7edf6;
+  --ink-2: #a9b7cb;
+  --ink-3: #6b7a90;
+
+  /* Accents — operational teal + signal amber, tied to control-room semantics */
+  --signal-teal: #3fd6d0;
+  --signal-teal-dim: rgba(63, 214, 208, 0.14);
+  --signal-green: #59d88f;
+  --signal-amber: #f3b04d;
+  --signal-red: #ef5b5b;
+  --signal-red-dim: rgba(239, 91, 91, 0.14);
+  --signal-violet: #9c8cf5;
+
+  /* Typography */
+  --font-display: 'Chakra Petch', 'Segoe UI', system-ui, sans-serif;
+  --font-ui: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Radii — deliberately small; the HUD-bracket motif carries the identity, not rounded corners */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 10px;
+
+  /* Shadows */
+  --shadow-panel: 0 10px 30px rgba(2, 6, 12, 0.55);
+  --glow-teal: 0 0 0 1px rgba(63, 214, 208, 0.25), 0 0 22px rgba(63, 214, 208, 0.12);
+  --glow-red: 0 0 0 1px rgba(239, 91, 91, 0.35), 0 0 22px rgba(239, 91, 91, 0.18);
+
+  /* Layout */
+  --sidebar-w: 236px;
+  --header-h: 90px;
+  --gap: 16px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme='light'] {
+  --bg-void: #eef1f6;
+  --bg-base: #f4f6f9;
+  --bg-panel: #ffffff;
+  --bg-panel-raised: #ffffff;
+  --bg-inset: #eaeef3;
+
+  --line: rgba(24, 38, 58, 0.1);
+  --line-strong: rgba(24, 38, 58, 0.18);
+  --line-accent: rgba(15, 148, 148, 0.35);
+
+  --ink-1: #10192a;
+  --ink-2: #45536b;
+  --ink-3: #7c8aa0;
+
+  --signal-teal: #0f9494;
+  --signal-teal-dim: rgba(15, 148, 148, 0.1);
+  --signal-green: #1a9c5c;
+  --signal-amber: #b8790f;
+  --signal-red: #d33c3c;
+  --signal-red-dim: rgba(211, 60, 60, 0.1);
+  --signal-violet: #6a56d8;
+
+  --shadow-panel: 0 8px 24px rgba(24, 38, 58, 0.1);
+  --glow-teal: 0 0 0 1px rgba(15, 148, 148, 0.2);
+  --glow-red: 0 0 0 1px rgba(211, 60, 60, 0.25);
+}

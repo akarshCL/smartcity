@@ -1,0 +1,69 @@
+/* ---------- Tablet ---------- */
+@media (max-width: 1180px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .split-2 { grid-template-columns: 1fr; }
+  .cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  :root { --sidebar-w: 220px; }
+  .cols-2 { grid-template-columns: 1fr; }
+  .split-3 { grid-template-columns: 1fr; }
+  .health-score-top { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Mobile: sidebar becomes an off-canvas drawer ---------- */
+@media (max-width: 760px) {
+  .app-shell { grid-template-columns: 1fr; }
+
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 250px;
+    transform: translateX(-100%);
+    transition: transform 0.25s var(--ease);
+    box-shadow: 20px 0 40px rgba(0,0,0,0.4);
+  }
+  .sidebar.is-open { transform: translateX(0); }
+
+  .sidebar-scrim {
+    display: none;
+    position: fixed; inset: 0; background: rgba(2,5,9,0.6);
+    z-index: 55;
+  }
+  .sidebar-scrim.is-open { display: block; }
+
+  .hamburger { display: flex; }
+
+  .topbar { padding: 0 14px; }
+  .topbar-left .greeting { font-size: 13.5px; }
+  .topbar-left .subline { display: none; }
+  .datetime { display: none; }
+  .operator .op-role { display: none; }
+
+  .main { padding: 16px 14px 50px; }
+
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .cols-3, .cols-4 { grid-template-columns: 1fr; }
+
+  .page-head { flex-direction: column; align-items: flex-start; }
+
+  .search-wrap { max-width: none; }
+
+  .modal-grid { grid-template-columns: 1fr; }
+
+  .weather-stats { flex-wrap: wrap; }
+  .weather-stats .ws-item { min-width: 44%; }
+
+  .toast-stack { left: 12px; right: 12px; max-width: none; }
+
+  .list-row { flex-wrap: wrap; }
+
+  .bar-row .bar-label { width: 62px; font-size: 10.5px; }
+}
+
+@media (max-width: 420px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .brand-text .brand-sub { display: none; }
+}

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NOVA CITY — Smart City Control Center</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/variables.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
+    </head>
+    <body>
+        <div class="app-shell">
+            <!-- ===================== SIDEBAR ===================== -->
+            <aside class="sidebar" id="sidebar">
+                <div class="brand">
+                    <svg class="brand-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="1" y="1" width="32" height="32" rx="7" stroke="#3fd6d0" stroke-width="1.5" />
+                        <path
+                            d="M9 24V14l4-4 4 4v10M17 24v-7l4-4 4 4v7"
+                            stroke="#3fd6d0"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    <div class="brand-text">
+                        <div class="brand-name">NOVA CITY</div>
+                        <div class="brand-sub">SMART CITY CONTROL</div>
+                    </div>
+                </div>
+
+                <nav class="nav" aria-label="Primary">
+                    <button class="nav-item" data-page="dashboard" aria-current="page">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="3" y="3" width="7" height="9" rx="1.5" />
+                            <rect x="14" y="3" width="7" height="5" rx="1.5" />
+                            <rect x="14" y="12" width="7" height="9" rx="1.5" />
+                            <rect x="3" y="16" width="7" height="5" rx="1.5" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-page="traffic">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="7" y="2" width="10" height="20" rx="3" />
+                            <circle cx="12" cy="7" r="1.4" fill="currentColor" stroke="none" />
+                            <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+                            <circle cx="12" cy="17" r="1.4" fill="currentColor" stroke="none" />
+                        </svg>
+                        <span>Traffic</span>
+                    </button>
+                    <button class="nav-item" data-page="energy">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-linejoin="round" />
+                        </svg>
+                        <span>Energy</span>
+                    </button>
+                    <button class="nav-item" data-page="environment">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 3a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6Z" />
+                            <circle cx="12" cy="9" r="2.2" />
+                        </svg>
+                        <span>Environment</span>
+                    </button>
+                    <button class="nav-item" data-page="water">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2s7 8 7 13a7 7 0 1 1-14 0c0-5 7-13 7-13Z" />
+                        </svg>
+                        <span>Water</span>
+                    </button>
+                    <button class="nav-item" data-page="transport">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="3" y="5" width="18" height="12" rx="3" />
+                            <path d="M3 11h18M7 17v2M17 17v2" />
+                            <circle cx="7.5" cy="14" r="0" />
+                        </svg>
+                        <span>Transport</span>
+                    </button>
+                    <button class="nav-item" data-page="emergency">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z" stroke-linejoin="round" />
+                            <path d="M12 8v5M12 16h.01" />
+                        </svg>
+                        <span>Emergency</span>
+                        <span class="nav-badge" id="navEmergencyBadge">3</span>
+                    </button>
+                    <button class="nav-item" data-page="reports">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M6 2h9l5 5v15H6z" />
+                            <path d="M15 2v5h5M9 13h6M9 17h6M9 9h2" />
+                        </svg>
+                        <span>Reports</span>
+                    </button>
+                    <button class="nav-item" data-page="settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"
+                            />
+                        </svg>
+                        <span>Settings</span>
+                    </button>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="status-chip" id="cityStatusChip" data-level="normal">
+                        <span class="dot"></span>
+                        <span id="cityStatusLabel">CITY STATUS: NORMAL</span>
+                    </div>
+                </div>
+            </aside>
+            <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+            <!-- ===================== MAIN ===================== -->
+            <div class="app-main">
+                <header class="topbar">
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                    </button>
+
+                    <div class="topbar-left">
+                        <div class="greeting">Good Morning, City Operator</div>
+                        <div class="subline">NOVA CITY &bull; LIVE CONTROL CENTER</div>
+                    </div>
+
+                    <div class="search-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                        <input
+                            type="search"
+                            class="search-input"
+                            id="searchInput"
+                            placeholder="Search roads, facilities, incidents…"
+                            aria-label="Global city search"
+                        />
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+
+                    <div class="topbar-right">
+                        <span class="live-indicator"><span class="dot"></span>LIVE</span>
+                        <div class="datetime">
+                            <div class="date" id="headerDate">—</div>
+                            <div class="time" id="headerTime">00:00:00</div>
+                        </div>
+                        <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme">
+                            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="4.5" />
+                                <path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" />
+                            </svg>
+                            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display: none">
+                                <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn" aria-label="Notifications" id="bellBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                                <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+                            </svg>
+                            <span class="ping" id="bellPing" style="display: none"></span>
+                        </button>
+                        <div class="operator">
+                            <div class="avatar">CO</div>
+                            <div>
+                                <div class="op-name">Operator Reyes</div>
+                                <div class="op-role">Shift Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="main" id="main">
+                    <!-- ===================== DASHBOARD PAGE ===================== -->
+                    <section class="page is-active" id="page-dashboard">
+                        <div class="page-head">
+                            <div>
+                                <h2>Command Overview</h2>
+                                <div class="page-desc">Live status across every monitored system in NOVA CITY.</div>
+                            </div>
+                        </div>
+
+                        <div class="grid kpi-grid section-block">
+                            <div class="panel kpi-card">
+                                <div class="kpi-top"><span class="kpi-label">TEMPERATURE</span><span class="kpi-icon">🌡</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiTempValue">28°C</div>
+                                <div class="kpi-meta" id="kpiTempMeta">Feels like 30°C</div>
+                            </div>
+                            <div class="panel kpi-card">
+                                <div class="kpi-top"><span class="kpi-label">AIR QUALITY</span><span class="kpi-icon">🌫</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiAqiValue">74 AQI</div>
+                                <div class="kpi-meta" id="kpiAqiMeta">Moderate</div>
+                            </div>
+                            <div class="panel kpi-card">
+                                <div class="kpi-top"><span class="kpi-label">TRAFFIC</span><span class="kpi-icon">🚗</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiTrafficValue">68%</div>
+                                <div class="kpi-meta" id="kpiTrafficMeta">High</div>
+                            </div>
+                            <div class="panel kpi-card">
+                                <div class="kpi-top"><span class="kpi-label">ENERGY USAGE</span><span class="kpi-icon">⚡</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiEnergyValue">62%</div>
+                                <div class="kpi-meta" id="kpiEnergyMeta">1.84 MW</div>
+                            </div>
+                            <div class="panel kpi-card">
+                                <div class="kpi-top"><span class="kpi-label">WATER SUPPLY</span><span class="kpi-icon">💧</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiWaterValue">87%</div>
+                                <div class="kpi-meta" id="kpiWaterMeta">Normal</div>
+                            </div>
+                            <div class="panel kpi-card" id="kpiIncidentsCard" data-tone="critical">
+                                <div class="kpi-top"><span class="kpi-label">ACTIVE INCIDENTS</span><span class="kpi-icon">🚨</span></div>
+                                <div class="kpi-value metric-value count-up" id="kpiIncidentsValue">3</div>
+                                <div class="kpi-meta" id="kpiIncidentsMeta">2 Critical</div>
+                            </div>
+                        </div>
+
+                        <div class="grid split-2 section-block">
+                            <div class="panel">
+                                <div class="panel-head">
+                                    <span class="panel-title"><span class="live-tick"></span>NOVA CITY MAP</span
+                                    ><span class="panel-sub">Click any marker or road</span>
+                                </div>
+                                <div class="map-wrap">
+                                    <svg
+                                        id="cityMapSvg"
+                                        class="city-map"
+                                        viewBox="0 0 800 460"
+                                        role="img"
+                                        aria-label="Interactive city map of Nova City"
+                                    ></svg>
+                                    <div class="map-legend">
+                                        <span><i style="background: var(--signal-teal)"></i>Hospital</span>
+                                        <span><i style="background: var(--signal-violet)"></i>Police</span>
+                                        <span><i style="background: var(--signal-amber)"></i>Fire Station</span>
+                                        <span><i style="background: #e6c94a"></i>Power</span>
+                                        <span><i style="background: #4ab7e6"></i>Water</span>
+                                        <span><i style="background: var(--signal-green)"></i>Bus Hub</span>
+                                        <span><i style="background: var(--signal-red)"></i>Active Incident</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel">
+                                <div class="panel-head">
+                                    <span class="panel-title">CITY ALERTS</span
+                                    ><button class="btn btn-ghost btn-sm" id="markAllReadBtn">Mark all as read</button>
+                                </div>
+                                <div id="alertsList"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid split-2 section-block">
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">CITY HEALTH SCORE</span></div>
+                                <div class="health-score-top">
+                                    <div class="health-ring-wrap">
+                                        <svg viewBox="0 0 108 108" width="108" height="108">
+                                            <circle class="health-ring-bg" cx="54" cy="54" r="45" />
+                                            <circle class="health-ring-fg" id="healthRingFg" cx="54" cy="54" r="45" />
+                                        </svg>
+                                        <div class="health-ring-value">
+                                            <span class="num" id="healthScoreNum">86</span><span class="denom">/ 100</span>
+                                        </div>
+                                    </div>
+                                    <div class="health-sub-bars" id="healthSubBars"></div>
+                                </div>
+                            </div>
+
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">WEATHER</span></div>
+                                <div class="weather-hero">
+                                    <div>
+                                        <div class="temp" id="weatherTemp">28°C</div>
+                                        <div class="cond" id="weatherCond">Partly Cloudy</div>
+                                    </div>
+                                    <div style="font-size: 40px">⛅</div>
+                                </div>
+                                <div class="weather-stats" id="weatherStats"></div>
+                                <div class="forecast-row" id="weatherForecast"></div>
+                            </div>
+                        </div>
+
+                        <div class="panel section-block">
+                            <div class="panel-head"><span class="panel-title">OPERATOR ACTIVITY</span></div>
+                            <div id="activityLogList"></div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== TRAFFIC PAGE ===================== -->
+                    <section class="page" id="page-traffic">
+                        <div class="page-head">
+                            <div>
+                                <h2>Live Traffic Monitoring</h2>
+                                <div class="page-desc">Real-time congestion across all monitored corridors.</div>
+                            </div>
+                        </div>
+                        <div class="grid split-2 section-block">
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">TRAFFIC OVERVIEW</span></div>
+                                <div id="trafficOverview"></div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">ROAD SEGMENTS</span></div>
+                                <div class="filter-row section-block" id="trafficFilterRow">
+                                    <button class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+                                    <button class="filter-pill" data-filter="high" aria-pressed="false">High</button>
+                                    <button class="filter-pill" data-filter="moderate" aria-pressed="false">Moderate</button>
+                                    <button class="filter-pill" data-filter="normal" aria-pressed="false">Normal</button>
+                                </div>
+                                <div id="trafficList"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== ENERGY PAGE ===================== -->
+                    <section class="page" id="page-energy">
+                        <div class="page-head">
+                            <div>
+                                <h2>City Energy</h2>
+                                <div class="page-desc">Grid load, solar contribution, and consumption trends.</div>
+                            </div>
+                        </div>
+                        <div class="panel section-block">
+                            <div id="energyStatStrip" class="stat-strip"></div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <span class="panel-title">CONSUMPTION TREND</span>
+                                <div class="filter-row" id="energyRangeRow">
+                                    <button class="filter-pill" data-range="24h" aria-pressed="true">24 Hours</button>
+                                    <button class="filter-pill" data-range="7d" aria-pressed="false">7 Days</button>
+                                    <button class="filter-pill" data-range="30d" aria-pressed="false">30 Days</button>
+                                </div>
+                            </div>
+                            <div class="energy-chart" id="energyChart"></div>
+                            <div class="chart-axis" id="energyChartAxis"></div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== ENVIRONMENT PAGE ===================== -->
+                    <section class="page" id="page-environment">
+                        <div class="page-head">
+                            <div>
+                                <h2>Environmental Monitoring</h2>
+                                <div class="page-desc">Air quality and sensor network across the city.</div>
+                            </div>
+                        </div>
+                        <div class="grid split-2">
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">AIR QUALITY INDEX</span></div>
+                                <div class="aqi-ring-wrap">
+                                    <svg viewBox="0 0 130 130" width="130" height="130">
+                                        <circle class="aqi-bg" cx="65" cy="65" r="55" />
+                                        <circle class="aqi-fg" id="aqiRingFg" cx="65" cy="65" r="55" />
+                                    </svg>
+                                    <div class="aqi-center">
+                                        <span class="aqi-num" id="aqiRingNum">74</span>
+                                        <span class="aqi-label">AQI</span>
+                                        <span class="aqi-status" id="aqiRingStatus">MODERATE</span>
+                                    </div>
+                                </div>
+                                <div class="stat-strip" id="envStats" style="margin-top: 18px"></div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">POLLUTANT LEVELS</span></div>
+                                <div id="pollutantList"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== WATER PAGE ===================== -->
+                    <section class="page" id="page-water">
+                        <div class="page-head">
+                            <div>
+                                <h2>Water Supply</h2>
+                                <div class="page-desc">Reservoir levels and distribution network status.</div>
+                            </div>
+                        </div>
+                        <div class="grid split-2">
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">CITY-WIDE SUPPLY</span></div>
+                                <div class="bar-row" style="border: none">
+                                    <span class="bar-label">Supply</span>
+                                    <div class="bar-track"><div class="bar-fill" id="waterGaugeFill" style="width: 87%"></div></div>
+                                    <span class="bar-pct mono" id="waterGaugeVal">87%</span>
+                                </div>
+                                <p class="page-desc" style="margin-top: 10px">
+                                    Status: <strong id="waterGaugeStatus" style="color: var(--ink-1)">Normal</strong>
+                                </p>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-head"><span class="panel-title">RESERVOIR ZONES</span></div>
+                                <div id="waterZoneList"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== TRANSPORT PAGE ===================== -->
+                    <section class="page" id="page-transport">
+                        <div class="page-head">
+                            <div>
+                                <h2>Public Transport</h2>
+                                <div class="page-desc">Fleet status across bus and metro networks.</div>
+                            </div>
+                        </div>
+                        <div class="panel section-block"><div class="stat-strip" id="transportStats"></div></div>
+                        <div class="panel section-block">
+                            <div class="panel-head">
+                                <span class="panel-title">FLEET</span>
+                                <div class="filter-row" id="transportFilterRow">
+                                    <button class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+                                    <button class="filter-pill" data-filter="bus" aria-pressed="false">Bus</button>
+                                    <button class="filter-pill" data-filter="metro" aria-pressed="false">Metro</button>
+                                    <button class="filter-pill" data-filter="delayed" aria-pressed="false">Delayed</button>
+                                </div>
+                            </div>
+                            <div id="transportList"></div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <span class="panel-title">SMART STREET LIGHTS</span><span class="panel-sub" id="streetlightActiveCount"></span>
+                            </div>
+                            <div id="streetlightList"></div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== EMERGENCY PAGE ===================== -->
+                    <section class="page" id="page-emergency">
+                        <div class="page-head">
+                            <div>
+                                <h2>Emergency Management</h2>
+                                <div class="page-desc">Active incidents and response coordination.</div>
+                            </div>
+                            <button class="btn btn-primary" id="simulateEmergencyBtn">+ Simulate Emergency</button>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <span class="panel-title">ACTIVE INCIDENTS</span>
+                                <div class="filter-row" id="emergencyFilterRow">
+                                    <button class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+                                    <button class="filter-pill" data-filter="critical" aria-pressed="false">Critical</button>
+                                    <button class="filter-pill" data-filter="high" aria-pressed="false">High</button>
+                                    <button class="filter-pill" data-filter="medium" aria-pressed="false">Medium</button>
+                                </div>
+                            </div>
+                            <div id="emergencyList"></div>
+                        </div>
+                    </section>
+
+                    <!-- ===================== REPORTS PAGE ===================== -->
+                    <section class="page" id="page-reports">
+                        <div class="page-head">
+                            <div>
+                                <h2>Reports</h2>
+                                <div class="page-desc">Snapshot of current city metrics and operator activity.</div>
+                            </div>
+                            <button class="btn" id="exportLogBtn">Export activity log (.csv)</button>
+                        </div>
+                        <div class="panel"><div class="stat-strip" id="reportsSummary"></div></div>
+                    </section>
+
+                    <!-- ===================== SETTINGS PAGE ===================== -->
+                    <section class="page" id="page-settings">
+                        <div class="page-head">
+                            <div>
+                                <h2>Settings</h2>
+                                <div class="page-desc">Preferences for this control center session.</div>
+                            </div>
+                        </div>
+                        <div class="panel section-block">
+                            <div class="list-row">
+                                <div class="row-main">
+                                    <div class="row-title">Theme</div>
+                                    <div class="row-sub">Switch between dark and light control-room modes.</div>
+                                </div>
+                                <button class="btn btn-sm" id="settingsThemeToggleBtn">Toggle theme</button>
+                            </div>
+                            <div class="list-row">
+                                <div class="row-main">
+                                    <div class="row-title">Toast notifications</div>
+                                    <div class="row-sub">Show pop-up confirmations for operator actions.</div>
+                                </div>
+                                <label class="switch"
+                                    ><input type="checkbox" id="settingsNotifToggle" checked aria-label="Toggle notifications" /><span
+                                        class="track"
+                                    ></span
+                                    ><span class="thumb"></span
+                                ></label>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="list-row" style="border: none">
+                                <div class="row-main">
+                                    <div class="row-title">Reset dashboard data</div>
+                                    <div class="row-sub">Clears saved theme, street light states, and resolved incidents.</div>
+                                </div>
+                                <button class="btn btn-danger btn-sm" id="resetDataBtn">Reset</button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- ===================== MODAL ===================== -->
+        <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-box">
+                <div class="modal-head">
+                    <h3 id="modalTitle">Details</h3>
+                    <button class="modal-close" id="modalClose" aria-label="Close dialog">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M6 6l12 12M18 6 6 18" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+
+        <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+        <script type="module" src="js/app.js"></script>
+    </body>
+</html>
